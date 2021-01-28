@@ -30,4 +30,12 @@ public class ReadFile {
     public String getPassword(){
         return properties.getProperty("password");
     }
+
+    public String getUrl(){
+        return properties.getProperty("url");
+    }
+
+    public String getBrowser(){
+        return properties.getProperty("browser");
+    }
 }
