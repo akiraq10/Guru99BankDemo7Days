@@ -1,5 +1,6 @@
 package GuruBankPages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +13,7 @@ import static Utilities.CommonFeatures.*;
 public class LoginPage {
 
     WebDriver driver;
+    Alert alert;
 
     @FindBy(name = "uid") WebElement txtUserID;
     @FindBy(name = "password") WebElement txtPassword;
@@ -41,4 +43,17 @@ public class LoginPage {
     public void clickLogin(){
         click(btnLogin);
     }
+
+    public String msgInsideAlert(){
+
+        alert=driver.switchTo().alert();
+        String msgAlert=driver.switchTo().alert().getText();
+        return msgAlert;
+    }
+    public void clickOkonAlert(){
+        alert=driver.switchTo().alert();
+        alert.accept();
+    }
+
+
 }
