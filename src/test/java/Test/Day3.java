@@ -1,16 +1,20 @@
 package Test;
 
 import GuruBankPages.LoginPage;
-import org.junit.Test;
+import org.testng.annotations.Test;
+
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
+import static Utilities.CommonFeatures.*;
 
 public class Day3 extends Hook{
     LoginPage loginPage;
     String expectedAlert="User or Password is not valid";
 
     @Test
-    public void runSS1(){
+    public void runSS1() throws IOException {
         loginPage=new LoginPage(driver);
         String homePageTitle="Guru99 Bank Home Page";
         assertEquals(homePageTitle,driver.getTitle());
@@ -21,6 +25,7 @@ public class Day3 extends Hook{
 
         String expectedResult="Guru99 Bank Manager HomePage";
         assertEquals(expectedResult,driver.getTitle());
+        captureScreen(driver,"testcase1");
     }
 
     @Test

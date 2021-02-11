@@ -63,8 +63,7 @@ public class ReadExl {
         ReadExl objExcelFile = new ReadExl();
 
         //Prepare the path of excel file
-
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\Sources";
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\Sources";
 
         //Call read file method of the class to read data
         objExcelFile.readExcel(filePath,"UserInfo.xlsx","UserInfo");

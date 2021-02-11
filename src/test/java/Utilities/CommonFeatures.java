@@ -1,5 +1,6 @@
 package Utilities;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +9,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+
+import org.openqa.selenium.OutputType;
+
+import org.openqa.selenium.TakesScreenshot;
 
 public class CommonFeatures {
 
@@ -56,7 +66,7 @@ public class CommonFeatures {
 
     public static void closeBrowser(){
 
-        driver.close();
+        driver.quit();
 
     }
 
@@ -76,6 +86,17 @@ public class CommonFeatures {
             return;
         }else element.click();
     }
+
+    public static void captureScreen(WebDriver driver, String tname) throws IOException  {
+
+        TakesScreenshot scrShot  = ((TakesScreenshot) driver);
+        File srcFile = scrShot .getScreenshotAs(OutputType.FILE);
+        File destFile = new File(System.getProperty("user.dir") + "/IMG/" + tname + ".png");
+        FileUtils.copyFile(srcFile, destFile);
+        System.out.println("Screenshot taken");
+    }
+
+
 
 
 }
